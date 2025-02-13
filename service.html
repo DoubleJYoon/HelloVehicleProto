@@ -9,67 +9,69 @@
 </head>
 <body>
     <div id="top-bar">
-        <div id="hello-stats-container">
-            <button id="hello-vehicle-btn">HELLO. VEHICLE</button>
-            <div id="top-bar-stats-wrapper">
-                <div id="top-bar-stats">
-                    <span class="top-stat">🚗 <span id="vehicle-count">145</span></span>
-                    <span class="top-stat">📅 <span id="date">13,957</span></span>
-                    <span class="top-stat1">📍 <span id="distance">231,346 (km)</span></span>
-                    <span class="top-stat">⏱️ <span id="hours">543,125 (hour)</span></span>
-                    <span class="top-stat">👤 <span id="storage">34,780</span></span>
-                </div>
-            </div>
+        <!-- 검색 바 -->
+        <div id="search-container">
+            <input type="text" id="search-box" placeholder="차량, 장소, 이용자 검색">
+            <button id="search-btn"><img src="search-icon.png" alt="Vehicle"></button>
         </div>
-
-         <div id="top-bar-actions-wrapper">
-            <div id="top-bar-actions">
-                <span id="current-datetime">2025/01/23 11:22:27</span>
-                <button id="my-page-btn">MY PAGE</button>
-                <button id="log-out-btn">LOG-OUT</button>
-                <span id="language-selector">KO</span>
-                <button id="download-btn">⬇</button>
-                <button id="fullscreen-btn">⛶</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 대시보드 메뉴 -->
-    <div id="side-dashboard">
-        <button id="close-dashboard">X</button>
-    <ul class="dashboard-menu">
-        <li>
-            <button class="menu-header">
-                01. 안전관제
-                <span class="toggle-icon">▼</span>
+    
+        <!-- 필터 버튼 (차량 유형, 장소 유형, 이용자 유형) -->
+        <div id="filter-container">
+            <button class="filter-btn1">
+                <img src="vehicle-icon.png" alt="Vehicle"> VEHICLE TYPE <span id = arrow>&#x02c5;</span>
             </button>
-            <ul class="sub-menu">
-                <li>앱 모니터링</li>
-                <li>운행경로 모니터링</li>
-                <li>운행경로 설정</li>
-                <li>운행 기록</li>
-                <li>환경센서 모니터링</li>
-            </ul>
-        </li>
-        <li>
-            <button class="menu-header">02. 운영관리</button>
-        </li>
-        <li>
-            <button class="menu-header">03. 차량 관리</button>
-        </li>
-        <li>
-            <button class="menu-header">04. 이용자 관리</button>
-        </li>
-        <li>
-            <button class="menu-header">05. 그룹웨어</button>
-        </li>
-        <li>
-            <button class="menu-header">06. 종합설정</button>
-        </li>
-    </ul>
+            <button class="filter-btn2">
+                <img src="place.png" alt="Place"> PLACE TYPE <span id = arrow>&#x02c5;</span>
+            </button>
+            <button class="filter-btn3">
+                <img src="user.png" alt="User"> USER TYPE <span id = arrow>&#x02c5;</span>
+            </button>
+        </div>
+    
+        <!-- 날짜 및 계정 관련 버튼 -->
+        <div id="account-container">
+            <span id="current-datetime">2025/02/11 11:22:27</span>
+            <button id="my-page-btn">MY PAGE</button>
+            <button id="log-out-btn">LOG-OUT</button>
+            <span id="language-selector">KO</span>
+            <button id="download-btn">⬇</button>
+            <button id="fullscreen-btn">⛶</button>
+        </div>
     </div>
     
-    
+    <div id="side-dashboard">
+            <li class="menu-item1">
+                <img src="logo.png" alt="Logo">   
+            </li>     
+            <li class="menu-item2">
+                <img src="total.png" alt="Total">
+                <span class="menu-text">Total</span>
+            </li>
+            <li class="menu-item3">
+                <img src="mobility.png" alt="Mobility">
+                <span class="menu-text">Mobility</span>
+            </li>
+            <li class="menu-item4">
+                <img src="location.png" alt="Location">
+                <span class="menu-text">Location</span>
+            </li>
+            <li class="menu-item5">
+                <img src="Customer.png" alt="Human">
+                <span class="menu-text">Customer</span>
+            </li>
+            <li class="menu-item6">
+                <img src="xrgame.png" alt="XR Game">
+                <span class="menu-text">XR Game</span>
+            </li>
+            <li class="menu-item7">
+                <img src="shopping.png" alt="Shopping">
+                <span class="menu-text">Shopping</span>
+            </li>
+            <li class="menu-item8">
+                <img src="more.png" alt="more">
+                <span class="menu-text">more</span>
+            </li>
+    </div>
 <div id="container">
     <!-- 지도 -->
     <div id="map"></div>
@@ -77,7 +79,8 @@
     <div id="dashboard" class="hidden">
     <!-- 토글 버튼 -->
     <button id="toggle-button">»</button>        
-        <!-- VEHICLE Section -->
+        <!-- VEHICLE & SAFETY 컨테이너 추가 -->
+    <div class="section-container">
         <div class = "section">
             <div class = "title">            
                 VEHICLE. <span class ="expand">+</span>
@@ -103,10 +106,12 @@
                 <div class = "info">
                     <div class="info-item"><span class="best">Best</span><span id="safety-best">0</span></div>                   
                     <div class="info-item"><span class="Good">Good</span><span id="safety-good">0</span></div>                     
-                    <div class="info-item"><span class="cation">Caution</span><span id="safety-caution">0</span></div>                    
+                    <div class="info-item"><span class="Caution">Caution</span><span id="safety-caution">0</span></div>                    
                 </div>
             </div>
         </div>
+    </div>
+    <div class="section-container">
         <!-- DEVICE Section -->
         <div class="section">
             <div class = "title">
@@ -122,18 +127,67 @@
                 </div>
             </div>
         </div>
-        <!-- 5G Traffic-->
+            <!-- AREA Section -->
         <div class="section">
-            <div class ="title">
-                5G Traffic. <span class = "expand">+</span>
+            <div class = "title">
+                AREA. <span class ="expand">+</span>
+            </div>
+            <div class = "content">
+                <div class="unit-text">1.seoul </div>
+                <div class = "value">43</div>
+                <div class = "info1">
+                    <div class="info-item1"><span class ="Seoul">Seoul</span><span id="area-seoul">20</span></div>                    
+                    <div class="info-item1"><span class ="Gyeonggi">Gyeonggi</span><span id="area-gyeonggi">10</span></div>                    
+                    <div class="info-item1"><span class ="Jeju">Jeju</span><span id="area-jeju">5</span></div>                    
+                    <div class="info-item1"><span class ="Ulsan">Ulsan</span><span id="area-Ulsan">8</span></div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class = "section">
+            <div class = "title">            
+                VEHICLE. <span class ="expand">+</span>
+            </div>
+            <div class = "content">
+                <div class="unit-text">(unit %)</div>
+                <div class ="value">0</div>
+                <div class ="info">
+                    <div class="info-item"><span class ="drive">Drive</span><span id="drive-count">0</span></div>                   
+                    <div class="info-item"><span class="stop">Stop</span><span id="stop-count">0</span></div>                                   
+                    <div class="info-item"><span class="ready">Ready</span><span id="ready-count">0</span></div>                    
+                </div>
+            </div>
+        </div>    
+        <!-- SAFETY Section -->
+        <div class="section">
+            <div class = "title">
+                SAFETY. <span class ="expand">+</span>
             </div>
             <div class = "content">
                 <div class="unit-text">(unit %)</div>
                 <div class = "value">0</div>
                 <div class = "info">
-                    <div class="info-item"><span class="on">On</span><span id="5g-traffic-on">0</span></div>                    
-                    <div class="info-item"><span class="check">Check</span><span id="5g-traffic-check">0</span></div>                    
-                    <div class="info-item"><span class="off">Off</span><span id="5g-traffic-off">0</span></div>                    
+                    <div class="info-item"><span class="best">Best</span><span id="safety-best">0</span></div>                   
+                    <div class="info-item"><span class="Good">Good</span><span id="safety-good">0</span></div>                     
+                    <div class="info-item"><span class="Caution">Caution</span><span id="safety-caution">0</span></div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-container">
+        <!-- DEVICE Section -->
+        <div class="section">
+            <div class = "title">
+                DEVICE. <span class = "expand">+</span> 
+            </div>
+            <div class ="content">
+                <div class="unit-text">(unit %)</div>
+                <div class ="value">0</div>
+                <div class ="info">
+                    <div class="info-item"><span class="on">On</span><span id="device-on">0</span></div>                    
+                    <div class="info-item"><span class="check">Check</span><span id="device-check">0</span></div>                    
+                    <div class="info-item"><span class= "off">Off</span><span id="device-off">0</span></div>                    
                 </div>
             </div>
         </div>
@@ -144,12 +198,12 @@
             </div>
             <div class = "content">
                 <div class="unit-text">1.seoul </div>
-                <div class = "value">0</div>
-                <div class = "area-list">
-                    <div class="area-item2"><span>Seoul</span><span id="area-seoul">0</span></div>                    
-                    <div class="area-item2"><span >Gyeonggi</span><span id="area-gyeonggi">0</span></div>                    
-                    <div class="area-item2"><span>Jeju</span><span id="area-jeju">0</span></div>                    
-                    <div class="area-item2"><span>Ulsan</span><span id="area-ulsan">0</span></div>                    
+                <div class = "value">43</div>
+                <div class = "info1">
+                    <div class="info-item1"><span class ="Seoul">Seoul</span><span id="area-seoul">20</span></div>                    
+                    <div class="info-item1"><span class ="Gyeonggi">Gyeonggi</span><span id="area-gyeonggi">10</span></div>                    
+                    <div class="info-item1"><span class ="Jeju">Jeju</span><span id="area-jeju">5</span></div>                    
+                    <div class="info-item1"><span class ="Ulsan">Ulsan</span><span id="area-Ulsan">8</span></div>                    
                 </div>
             </div>
         </div>
